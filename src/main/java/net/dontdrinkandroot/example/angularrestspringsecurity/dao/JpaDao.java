@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class JpaDao<T extends Entity, I> implements Dao<T, I>
 {
-
 	private EntityManager entityManager;
 
 	protected Class<T> entityClass;
