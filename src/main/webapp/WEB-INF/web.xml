@@ -9,19 +9,53 @@
 	<!--
 		Load Spring Context 
 	 -->
+	 <!--
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:/context.xml
 		</param-value>
-	</context-param>
+	</context-param>-->
+	 <!--  Close this listener temporarily
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	-->
+	<display-name>BDIT</display-name>
+  	<context-param>
+    	<param-name>org.restlet.application</param-name>
+    	<param-value>net.dontdrinkandroot.example.datastore.DatastoreApplication</param-value>
+  	</context-param>
+  	<context-param>
+	    <param-name>org.restlet.clients</param-name>
+	    <param-value>HTTP HTTPS</param-value>
+	</context-param>
+  	<context-param>
+	    <param-name>com.joyaether.datastore.content.path</param-name>
+	    <param-value>file:///C:\ProgramData\Tomcat\B2B</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.bdit.datastore.content.url</param-name>
+    <param-value>http://localhost/garment-label/api/contents/</param-value>
+	<!-- <param-value>http://localhost:8080/b2b/api/contents/</param-value> -->
+  </context-param>
 	
+	<servlet>
+	    <servlet-name>RestletServlet</servlet-name>
+	    <servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>RestletServlet</servlet-name>
+    	<url-pattern>/api/*</url-pattern>
+  	</servlet-mapping>
+  	
+	<listener>
+    	<listener-class>net.dontdrinkandroot.example.listener.ARSApplicationServletContextListener</listener-class>
+ 	 </listener>
 	<!--
 		Map the REST Servlet to /rest/ 
 	 -->
+	 <!-- 
 	<servlet>
 		<servlet-name>RestService</servlet-name>
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
@@ -39,10 +73,10 @@
 		<servlet-name>RestService</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
-	
+	 -->
 	<!--
 		Apply Spring Security Filter to all Requests 
-	 -->
+	
 	<filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -50,6 +84,6 @@
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping> -->
     
 </web-app>
