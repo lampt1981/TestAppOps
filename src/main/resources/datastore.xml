@@ -10,11 +10,11 @@
 		<password>C0mmander</password>
 	</database>
 	
-	<eap_database>
-	    <url>jdbc:sqlserver://54.169.149.15;databaseName=TMISDB;user=B2Buser;password=B2bpwd</url>
-		<username>B2Buser</username>
-		<password>B2bpwd</password>
-	</eap_database>
+	<ars_database>
+	    <url>jdbc:sqlserver://localhost;databaseName=b2b;user=sa;password=C0mmander</url>
+		<username>sa</username>
+		<password>C0mmander</password>
+	</ars_database>
 	
 	<!-- Authentication configuration -->
 	<authentication scheme="HTTP_MAC">
